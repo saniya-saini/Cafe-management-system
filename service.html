@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Fauna One">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Management Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: whitesmoke;
+            font-family: Arial, sans-serif;
+            animation: fadeIn 1s;
+        }
+        header {
+            background-image: url(SERVICES.jpg);
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-family: cinzel, serif;
+            color: blanchedalmond;
+            animation: slideIn 1s ease-in-out;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        #services, #loyalty, #offers {
+            background-color: rgb(244, 223, 194);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            animation: fadeInUp 0.5s forwards;
+        }
+        #services { animation-delay: 0.5s; }
+        #loyalty { animation-delay: 0.7s; }
+        #offers { animation-delay: 0.9s; }
+        h2 {
+            font-family: cinzel, serif;
+            color: black;
+        }
+        h3 {
+            font-family: Fauna One, serif;
+            color: black;
+        }
+        h4 {
+            font-family: Fauna One, serif;
+            color: blanchedalmond;
+        }
+        .service,.loyalty,.offer {
+            background-color: whitesmoke;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: box-shadow 0.3s;
+            animation: fadeIn 0.5s forwards;
+        }
+        .service h3, .offer h3 {
+            color: rgb(118, 63, 63)
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- container fluid for full width across all viewport and device sizes.  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <header>
+    <h1><b>Welcome to Brewberry Services</b></h1>
+    <h4><b>"Where flavour meets friendship"</b></h4>
+</header>
+
+<div class="container">
+    <div class="row">
+        <section id="services" class="col-12">
+            <h2><u>Our Services</u>:</h2>
+            <div class="service col-12">
+                <h3><i>Online Ordering</i>:</h3>
+                <p>Allow customers to place orders online for pickup or delivery, enhancing convenience and improving sales.</p>
+            </div>
+            <div class="service col-12">
+                <h3><i>Customer Loyalty Program</i>:</h3>
+                <p>Engage your customers with a loyalty program that rewards them for their purchases, increasing repeat business.</p>
+            </div>
+            <div class="service col-12">
+                <h3><i>Staff Management</i>:</h3>
+                <p>Manage staff schedules, track hours worked, and streamline payroll processing.</p>
+            </div>
+        </section>
+
+        <section id="loyalty" class="col-12">
+            <h2><u>Customer Loyalty Points</u>:</h2>
+            <p><b>Join our loyalty program and earn points with every purchase!</b></p>
+            <ul>
+                <li>Earn 1 point for every $1 spent.</li>
+                <li>Double points on Wednesdays!</li>
+            </ul>
+            <h3><i>Your Points Balance</i>:</h3>
+            <p>Your current points: <span id="points-balance">0</span></p>
+            <h3><i>Redeem Your Points</i></h3>
+            <ul>
+                <li>100 points = $5 off your next purchase</li>
+                <li>700 points = Free coffee for a week</li>
+            </ul>
+            <button id="redeem-btn" class="btn btn-primary">Redeem 100 Points</button>
+            <p id="message"></p>
+        </section>
+
+        <section id="offers" class="col-12">
+            <h2><u>Special Offers</u>:</h2>
+            <div class="offer col-12">
+                <h3><i>Happy Hour</i>:</h3>
+                <p>Enjoy 50% off on all drinks from 4 PM to 6 PM!</p>
+                <p><strong>Valid until:</strong> Ongoing</p>
+            </div>
+            <div class="offer col-12">
+                <h3><i>Loyalty Points Double</i>:</h3>
+                <p>Earn double loyalty points on every purchase on Sundays!</p>
+                <p><strong>Valid until:</strong> Ongoing</p>
+            </div>
+        </section>
+
+        <section id="contact" class="col-12">
+            <h5><b><u>Contact Us</u>:</b></h5>
+            <p>If you have any questions or would like to know more about our services, feel free to reach out!</p>
+            <p>Email: info@thebrewberry.com</p>
+            <p>Phone: +(999)123-765678</p>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Cafe Management Service. All rights reserved.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    let points = 0;
+
+    function updatePointsDisplay() {
+        document.getElementById('points-balance').textContent = points;
+    }
+
+    document.getElementById('redeem-btn').addEventListener('click', function() {
+        if (points >= 100) {
+            points -= 100;
+            updatePointsDisplay();
+            document.getElementById('message').textContent = 'You have successfully redeemed 100 points!';
+        } else {
+            document.getElementById('message').textContent = 'You do not have enough points to redeem.';
+        }
+    });
+
+    function earnPoints(amount) {
+        points += amount;
+        updatePointsDisplay();
+    }
+
+    earnPoints(900);
+</script>
+</body>
+</html>
